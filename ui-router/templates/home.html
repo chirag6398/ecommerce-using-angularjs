@@ -1,0 +1,18 @@
+<div 
+style="display: flex;
+justify-content: center;
+align-items: flex-start;
+flex-wrap: wrap;
+background-color: #f1f1f1;"
+
+ ng-controller="homeController">
+    <div class="card" ng-repeat="card in data" style="min-width: 270px;max-width: 270px;margin: 10px;">
+        <img class="card-img-top" style="object-fit: contain;height: 190px;" src={{card.image}} alt="loading...">
+        <div class="card-body">
+          <h5 class="card-title">{{card.title}}</h5>
+          <p class="card-text">Rs. {{(card.price)|number:0}}</p>
+          <p class="card-text">{{trimString(card.description)}}</p>
+          <button ng-click="addItemHandler(card)" class="btn btn-warning">Add to cart</button>
+        </div>
+      </div>
+</div>
