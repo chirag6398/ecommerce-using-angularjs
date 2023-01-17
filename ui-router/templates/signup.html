@@ -45,7 +45,7 @@
                         <label ng-show="signinFotm.password.$dirty" id="3">Please enter password of 5-8 Characters</label>
                     </div>
                     <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
-                        <div class="inputField">
+                        <div ng-show="(p1==false && p2==false && p3==false && p4==false)" class="inputField">
                             <i class="fa fa-key fa-lg" ></i>
                             <input class="input" type="password" id="cpassword" min="5" max="8" ng-change="matchPassword(signin.cpassword,signin.password)"   placeholder="Confirm Password" ng-model="signin.cpassword" ng-required="true">
                             

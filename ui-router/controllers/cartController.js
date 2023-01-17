@@ -12,27 +12,23 @@ app.controller("cartController",['$scope','$location',function($scope,$location)
         }
     }
 
-
     $scope.currentUser2 = JSON.parse(window.localStorage.getItem("currentUser"));
     console.log($scope.currentUser2)
     if($scope.currentUser2!=null){
-        
         $scope.quantity=0;
         $scope.calculateAmount=function(){
-    
-            $scope.currentUser2.cart.forEach((item)=>{
-                $scope.totalAmount+=item.quantity*Math.ceil(item.price);
-                $scope.quantity+=item.quantity;
-            })
-    
-            
-            
-        }
-        $scope.calculateAmount();
-    }else{
-        
-        $location.path("/signIn")
 
+        $scope.currentUser2.cart.forEach((item)=>{
+            $scope.totalAmount+=item.quantity*Math.ceil(item.price);
+            $scope.quantity+=item.quantity;
+        });         
+        
+        }
+
+        $scope.calculateAmount();
+    }
+    else{
+        $location.path("/signIn")
     }
 
     $scope.removeItem=function(item){
@@ -46,13 +42,5 @@ app.controller("cartController",['$scope','$location',function($scope,$location)
 
         window.localStorage.setItem("currentUser",JSON.stringify($scope.currentUser2))
 
-    }
-
-   
-
-    
-
-    
-
-    
-}])
+    }    
+}]);

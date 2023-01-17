@@ -10,12 +10,11 @@ app.controller("mainController",function($scope,$location){
         $scope.isUserLogIn=false;
         $location.path('/home');
     }
-
-    
     
     $scope.logoutHandler=function(){
 
         window.localStorage.removeItem("currentUser");
+        $scope.isUserLogIn=false;
         $location.path("/signIn");
     }
 })

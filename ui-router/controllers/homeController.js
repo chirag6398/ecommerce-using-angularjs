@@ -1,41 +1,27 @@
 ///<reference path="../app.js" />
-
+// /<reference path="../services/service.js"/>
 
 
 
 app.controller("homeController",['$scope','$location','$http', function($scope,$location,$http) {
-
     $scope.currentUser = JSON.parse(window.localStorage.getItem("currentUser"));
-
     $scope.trimString=function(str){
         if(str.length>50){
             return str.substring(0,50)+"..."
         }
     }
-
-
     if($scope.currentUser){
-        $http({
-            method: 'GET',
-            url: 'https://fakestoreapi.com/products'
-          }).then(function successCallback(response) {
-              console.log(response.data);
-            
-              $scope.data=response.data;
-
-
-            }, function errorCallback(response) {
-             
-            });
+        
+        $http.get('https://fakestoreapi.com/products').success(function(response){
+            console.log(response);
+            $scope.data=response;
+          });
     }else{
         $location.path("/signIn");
     }
 
 
     $scope.addItemHandler=function(item){
-
-        
-
         let exist=$scope.currentUser.cart.findIndex((order)=>{ return order.id===item.id; })
         
         if(exist!==-1){
@@ -64,9 +50,5 @@ app.controller("homeController",['$scope','$location','$http', function($scope,$
         users[indx].cart=$scope.currentUser.cart;
         alert(JSON.stringify(users));
         window.localStorage.setItem("users",JSON.stringify(users))
-    }
-
-    
-
-    
-}])
+    }   
+}]);
