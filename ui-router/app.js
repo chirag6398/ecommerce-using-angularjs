@@ -1,3 +1,4 @@
+///<reference path="./services/service.js"/>
 
 let app=angular.module("myModule",['ui.router']);
 

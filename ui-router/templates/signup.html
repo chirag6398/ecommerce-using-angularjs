@@ -36,13 +36,13 @@
                         <label ng-style="d3" ng-show="signinForm.number.$dirty && signinForm.number.$invalid" id="3">Please enter 10 digit number</label>
                     </div>
                     <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
-                        <div class="inputField">
+                        <div class="inputField"  >  
                             <i class="fa fa-key fa-lg" ></i>
                            
-                            <input name="password" ng-change="passwordHandler(signin.password)"   class="input" type="password" id="password" min="5" max="8" placeholder="Password" ng-model="signin.password" ng-required="true">
+                            <input  name="password" ng-change="passwordHandler(signin.password)"   class="input" type="password" id="password" min="5" max="8" placeholder="Password" ng-model="signin.password" ng-required="true">
                             
                         </div>
-                        <label ng-show="signinFotm.password.$dirty" id="3">Please enter password of 5-8 Characters</label>
+                        <label ng-show="signinForm.password.$dirty && (!(p1==false && p2==false && p3==false && p4==false))" id="3">Please enter correct password</label>
                     </div>
                     <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
                         <div ng-show="(p1==false && p2==false && p3==false && p4==false)" class="inputField">

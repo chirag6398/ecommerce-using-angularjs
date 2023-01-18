@@ -1,9 +1,12 @@
 ///<reference path="../app.js" />
+///<reference path="../services/service.js"/>
 
 const users = JSON.parse(window.localStorage.getItem("users"));
 
 app.controller("signInController",['$scope','$location', function($scope,$location) {
-
+    if(window.localStorage.getItem("currentUser")){
+        $location.path('/home')
+    }
     $scope.submitHandler=function($event){
         $event.preventDefault();
         console.log($scope.signIn,users);
@@ -14,6 +17,7 @@ app.controller("signInController",['$scope','$location', function($scope,$locati
                 
         if(ind!=-1){
             window.localStorage.setItem("currentUser",JSON.stringify(users[ind]));
+            // DataTransfer.setUserDetails(users[ind]);
             $location.path("/home");
         }else{
 
