@@ -2,8 +2,9 @@
 
 
 
+app.controller("homeController",['$scope','$location','$http','$rootScope', function($scope,$location,$http,$rootScope) {
+    
 
-app.controller("homeController",['$scope','$location','$http', function($scope,$location,$http) {
     $scope.currentUser = JSON.parse(window.localStorage.getItem("currentUser"));
     $scope.trimString=function(str){
         if(str.length>50){
@@ -12,7 +13,7 @@ app.controller("homeController",['$scope','$location','$http', function($scope,$
     }
 
     if($scope.currentUser){
-        
+        $rootScope.isUserLogIn=true;
         $http.get('https://fakestoreapi.com/products').success(function(response){
                 // console.log(response);
                 $scope.data=response;

@@ -2,13 +2,14 @@
 
 let app=angular.module("myModule",['ui.router']);
 
-app.controller("mainController",function($scope,$location){
+app.controller("mainController",function($scope,$location,$rootScope){
 
     $scope.currentUser1=JSON.parse(window.localStorage.getItem(("currentUser")));
+    // console.log(currentUser1.email)
     if($scope.currentUser1){
-        $scope.isUserLogIn=true;
+        $rootScope.isUserLogIn=true;
     }else{
-        $scope.isUserLogIn=false;
+        $rootScope.isUserLogIn=false;
         $location.path('/home');
     }
     

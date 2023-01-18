@@ -3,7 +3,7 @@
 
 const users = JSON.parse(window.localStorage.getItem("users"));
 
-app.controller("signInController",['$scope','$location', function($scope,$location) {
+app.controller("signInController",['$scope','$location','$rootScope', function($scope,$location,$rootScope) {
     if(window.localStorage.getItem("currentUser")){
         $location.path('/home')
     }
@@ -18,7 +18,9 @@ app.controller("signInController",['$scope','$location', function($scope,$locati
         if(ind!=-1){
             window.localStorage.setItem("currentUser",JSON.stringify(users[ind]));
             // DataTransfer.setUserDetails(users[ind]);
-            $location.path("/home");
+            $rootScope.isUserLogIn=true;
+            window.location.href="#/home"
+            // $location.path("/home");
         }else{
 
             alert("Enter Correct email and password");
