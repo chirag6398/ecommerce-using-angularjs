@@ -14,6 +14,10 @@ app.config(function($stateProvider,$urlRouterProvider){
         url:'/payment',
         templateUrl:'./templates/payment.html',
         controller:"paymentController"
+    }).state('productDetail',{
+        url:'/productDetail/:id',
+        templateUrl:'./templates/productDetail.html',
+        controller:"productDetailController"
     }).state('cart',{
         url:'/cart',
         templateUrl:'./templates/cart.html',

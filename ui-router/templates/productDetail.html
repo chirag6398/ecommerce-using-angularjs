@@ -1,0 +1,15 @@
+<div ng-controller="productDetailController">
+    <div class="card" style="min-width: 270px;max-width: 270px;margin: 10px;">
+      
+        <img class="card-img-top" style="object-fit: contain;height: 135px;" src={{data.image}} alt="loading...">
+        <div class="card-body" style="display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;">
+          <h5 class="card-title">{{data.title}}</h5>
+          <p class="card-text">Rs. {{(data.price)|number:0}}</p>
+          <p class="card-text">{{trimString(data.description)}}</p>
+          <button ng-click="addItemHandler(data)" class="btn btn-warning">Add to cart</button>
+          <!-- <button  class="btn btn-warning">View Data</button> -->
+        </div>
+      </div>
+</div>

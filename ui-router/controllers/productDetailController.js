@@ -1,31 +1,19 @@
 ///<reference path="../app.js" />
 
 
+function getProductDetails(id){
+    let products=JSON.parse(window.localStorage.getItem("products"));
+ 
+    let ind=products.findIndex((e)=>{return e.id===+id});
+    
+    return products[ind];
+}
 
+app.controller("productDetailController",['$scope','$stateParams',function($scope,$stateParams) {
 
-app.controller("homeController",['$scope','$location','$http', function($scope,$location,$http) {
-    $scope.currentUser = JSON.parse(window.localStorage.getItem("currentUser"));
-    $scope.trimString=function(str){
-        if(str.length>50){
-            return str.substring(0,50)+"..."
-        }
-    }
-
-    if($scope.currentUser){
-        
-        $http.get('https://fakestoreapi.com/products').success(function(response){
-                // console.log(response);
-                $scope.data=response;
-
-                if(JSON.parse(window.localStorage.getItem("products"))==null){
-                    window.localStorage.setItem("products",JSON.stringify(response));
-                }
-          });
-    }else{
-        $location.path("/signIn");
-    }
-
-
+    
+    $scope.data=getProductDetails($stateParams.id);
+    
     $scope.addItemHandler=function(item){
         
         let exist=$scope.currentUser.cart.findIndex((order)=>{ return order.id===item.id; })
@@ -57,4 +45,5 @@ app.controller("homeController",['$scope','$location','$http', function($scope,$
         alert(JSON.stringify(users));
         window.localStorage.setItem("users",JSON.stringify(users))
     }   
+    
 }]);

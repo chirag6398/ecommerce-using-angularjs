@@ -14,7 +14,7 @@ function updateUsers(nUser){
 }
 
 app.controller("editAddressController",['$scope','$location',function($scope,$location) {
-//  alert("hi")
+
     if(JSON.parse(window.localStorage.getItem("currentUser")).address!=null){
         $location.path("/payment");
     }
