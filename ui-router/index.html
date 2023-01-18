@@ -6,11 +6,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js" 
     integrity="sha512-HdDqpFK+5KwK5gZTuViiNt6aw/dBc3d0pUArax73z0fYN8UXiSozGNTo3MFx4pwbBPldf5gaMUq/EqposBQyWQ==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
     crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/signUp.css">
+    <link rel="stylesheet" href="./styles/editUser.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -40,7 +42,7 @@
                 <a class="nav-link" ui-sref="signIn">SignIn</a>
               </li>
               <li ng-show="isUserLogIn" id="signin" class="nav-item ">
-                <p class="nav-link" >{{currentUser1.email}}</p>
+                <a ui-sref="profile" class="nav-link" >{{currentUser1.email}}</a>
               </li>
                 <li ng-show="isUserLogIn" class="nav-item">
                     <span class="nav-link" style="cursor: pointer;" ng-click="logoutHandler()">Logout</span >
@@ -59,6 +61,8 @@
   <script src="./controllers/signInController.js"></script>
   <script src="./controllers/homeController.js"></script>
   <script src="./controllers/cartController.js"></script>
+  <script src="./controllers/profileController.js"></script>
+  <script src="./controllers/editUserController.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
    crossorigin="anonymous"></script>

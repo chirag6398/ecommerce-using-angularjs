@@ -6,10 +6,18 @@ app.config(function($stateProvider,$urlRouterProvider){
         url:'/home',
         templateUrl:'./templates/home.html',
         controller:"homeController"
+    }).state('profile',{
+        url:'/profile',
+        templateUrl:'./templates/profile.html',
+        controller:"profileController"
     }).state('cart',{
         url:'/cart',
         templateUrl:'./templates/cart.html',
         controller:"cartController"
+    }).state('editUser',{
+        url:'/editUser',
+        templateUrl:'./templates/editUser.html',
+        controller:"editUserController"
     }).state('signIn',{
         url:'/signIn',
         templateUrl:'./templates/signin.html',
