@@ -10,6 +10,10 @@ app.config(function($stateProvider,$urlRouterProvider){
         url:'/profile',
         templateUrl:'./templates/profile.html',
         controller:"profileController"
+    }).state('payment',{
+        url:'/payment',
+        templateUrl:'./templates/payment.html',
+        controller:"paymentController"
     }).state('cart',{
         url:'/cart',
         templateUrl:'./templates/cart.html',
@@ -18,6 +22,10 @@ app.config(function($stateProvider,$urlRouterProvider){
         url:'/editUser',
         templateUrl:'./templates/editUser.html',
         controller:"editUserController"
+    }).state('editAddress',{
+        url:'/editAddress',
+        templateUrl:'./templates/editAddress.html',
+        controller:"editAddressController"
     }).state('signIn',{
         url:'/signIn',
         templateUrl:'./templates/signin.html',

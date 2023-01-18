@@ -1,5 +1,5 @@
 ///<reference path="../app.js" />
-// /<reference path="../services/service.js"/>
+
 
 
 
@@ -10,6 +10,7 @@ app.controller("homeController",['$scope','$location','$http', function($scope,$
             return str.substring(0,50)+"..."
         }
     }
+
     if($scope.currentUser){
         
         $http.get('https://fakestoreapi.com/products').success(function(response){
@@ -22,6 +23,7 @@ app.controller("homeController",['$scope','$location','$http', function($scope,$
 
 
     $scope.addItemHandler=function(item){
+        
         let exist=$scope.currentUser.cart.findIndex((order)=>{ return order.id===item.id; })
         
         if(exist!==-1){

@@ -1,0 +1,45 @@
+<div class="container" ng-controller="editAddressController">
+    <div class="centerDiv">
+        <h3>Add Address</h3>
+    <form name="addAddress" novalidate>
+    <div class="form-group">
+        <input type="text" 
+               class="form-control" 
+               id="autocomplete" 
+               placeholder="Street"
+               ng-required="true"
+               ng-model="address.street">
+        
+        <input type="text" 
+               class="form-control" 
+               id="inputCity" 
+               placeholder="City"
+               ng-required="true"
+               ng-model="address.city">
+        
+        <input type="text" 
+               class="form-control" 
+               id="inputState" 
+               placeholder="State"
+               ng-required="true"
+               ng-model="address.state">
+        
+        <input type="number" 
+               class="form-control" 
+               id="inputZip" 
+               placeholder="Zip"
+               ng-required="true"
+               ng-model="address.zip">
+        
+        
+        
+        
+
+        <button ng-disabled="addAddress.$invalid" class="btn btn-warning" ng-click="submitHandler($event)" type="submit">Save</button>
+      </div>
+    </form>
+
+    </div>
+    
+      
+</div>
